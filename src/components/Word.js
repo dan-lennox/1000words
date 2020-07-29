@@ -1,5 +1,5 @@
 /**
- * Word Component.
+ * AnswerForm Component.
  */
 
 const Word = ({ word }) => {

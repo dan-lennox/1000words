@@ -6,6 +6,7 @@ import { shuffleArray } from '../lib/helpers';
 import croatian from '../../data/wordSets/croatian';
 import WordCountSlider from './WordCountSlider';
 import Word from './Word';
+import AnswerForm from './AnswerForm';
 import Progress from './Progress';
 import Result from './Result';
 
@@ -24,6 +25,8 @@ const Game = () => {
   const [gameStatus, setGameStatus] = useState(NONE);
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+
 
   useEffect(() => {
     words.length === 0 && setWordsList(defaultWordCount);
@@ -53,6 +56,16 @@ const Game = () => {
     }
   }
 
+  const processAnswer = (answer) => {
+    if (answer.toUpperCase() === words[currentWordIndex].english.toUpperCase()) {
+      console.log('correct');
+    }
+    else {
+      console.log('incorrect - Correct is: ', words[currentWordIndex].english)
+    }
+    nextWord();
+  }
+
   return (
     <div id="game" className="center">
       <h1>{words.length} words</h1>
@@ -67,9 +80,19 @@ const Game = () => {
       {gameStatus === IN_PROGRESS &&
         <Fragment>
           <Progress current={currentWordIndex} total={words.length} />
-          <Word word={words[currentWordIndex]}/>
-          {/* todo: Input. */}
-          <button id="skip" className="btn red" onClick={nextWord}>Skip</button>
+          <Word word={words[currentWordIndex]} />
+
+          <div className="row">
+            <div className="col s6 offset-s3">
+              <AnswerForm answerCallback={processAnswer} />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col s12 center">
+              <button id="skip" className="btn red" onClick={nextWord}>Skip</button>
+            </div>
+          </div>
         </Fragment>
       }
 
