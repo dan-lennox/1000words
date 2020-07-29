@@ -1,4 +1,8 @@
-export default ({ wordCount, update }) => {
+/**
+ * WordCountSlider Component.
+ */
+
+const WordCountSlider = ({ wordCount, update }) => {
   return (
     <form action="#">
       <p className="range-field">
@@ -15,3 +19,4 @@ export default ({ wordCount, update }) => {
     </form>
   );
 }
+export default WordCountSlider;
