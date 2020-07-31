@@ -3,7 +3,7 @@
  */
 import React, { useState, useEffect, createContext, Fragment } from 'react';
 import { shuffleArray } from '../lib/helpers';
-import croatian from '../../data/wordSets/croatian';
+import croatian from '../../data/wordSets/croatian.json';
 import WordCountSlider from './WordCountSlider';
 import Word from './Word';
 import AnswerForm from './AnswerForm';
@@ -20,20 +20,16 @@ const Game = () => {
   const FINISHED = 2;
   const defaultWordCount = 100;
 
-  const [words, setWords] = useState([]);
-
-  const [gameStatus, setGameStatus] = useState(NONE);
-
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-
+  const [words, setWords] = useState<Array<string>>([]);
+  const [gameStatus, setGameStatus] = useState<number>(NONE);
+  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
   useEffect(() => {
     words.length === 0 && setWordsList(defaultWordCount);
   });
 
 
-  const setWordsList = (count) => {
+  const setWordsList = (count: number) => {
     setWords(shuffleArray(croatian.slice(0, count)));
   }
 
@@ -56,7 +52,7 @@ const Game = () => {
     }
   }
 
-  const processAnswer = (answer) => {
+  const processAnswer = (answer: string) => {
     if (answer.toUpperCase() === words[currentWordIndex].english.toUpperCase()) {
       console.log('correct');
     }

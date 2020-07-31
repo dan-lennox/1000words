@@ -2,7 +2,7 @@
  * Result Component.
  */
 
-const Result = ({ word }) => {
+const Result = () => {
   return (
     <h3>Game Finished.</h3>
   );

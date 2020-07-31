@@ -16,8 +16,8 @@ export default function Home() {
         {/* Import materialize.css */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-        {/* Import materialize.js */}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" />
+        {/* Import materialize.js @todo: Get rid of this, make it non blocking. */}
+        {/*<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" />*/}
       </Head>
       <main>
         <Game />
