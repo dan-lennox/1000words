@@ -1,4 +1,5 @@
 import '@material/react-button/dist/button.css';
+import '@material/react-material-icon/dist/material-icon.css';
 import { ComponentClass } from 'react';
 
 type Props = {

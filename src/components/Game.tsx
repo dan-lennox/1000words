@@ -11,6 +11,7 @@ import AnswerForm from './AnswerForm';
 import Progress from './Progress';
 import Result from './Result';
 import Button from '@material/react-button';
+import MaterialIcon from '@material/react-material-icon';
 
 // const GameState = createContext({
 //   //words: []
@@ -88,7 +89,9 @@ const Game = () => {
 
           <div className="row">
             <div className="col push-s2 s4">
-              { currentWordIndex > 0 && <Button onClick={resetGame}>Restart</Button> }
+              { currentWordIndex > 0 &&
+                <Button onClick={resetGame} trailingIcon={<MaterialIcon icon='refresh' />}>Restart</Button>
+              }
             </div>
             <div className="col push-s2 s4">
               <Button
@@ -106,7 +109,7 @@ const Game = () => {
 
       { gameStatus === FINISHED &&
         <Fragment>
-               <Result />
+          <Result />
           <Button id="play-again" unelevated={true} onClick={resetGame}>Play Again</Button>
         </Fragment>
       }
