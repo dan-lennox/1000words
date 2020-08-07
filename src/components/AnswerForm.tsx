@@ -1,24 +1,23 @@
 /**
  * AnswerForm Component.
  */
-import { SyntheticEvent, useState, ChangeEvent } from 'react';
+import { SyntheticEvent, useState, ChangeEvent, ReactElement } from 'react';
 
 type Props = {
-  answerCallback: (answer: string) => void
-}
+  answerCallback: (answer: string) => void;
+};
 
-const AnswerForm = ({ answerCallback }: Props) => {
-
+const AnswerForm = ({ answerCallback }: Props): ReactElement => {
   const [answer, setAnswer] = useState('');
 
-  const handleSubmit = (event: SyntheticEvent) => {
+  const handleSubmit = (event: SyntheticEvent): void => {
     answerCallback(answer);
     event.preventDefault();
-  }
+  };
 
-  const handleChange = ({ target: { value }}: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>): void => {
     setAnswer(value);
-  }
+  };
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
@@ -35,5 +34,6 @@ const AnswerForm = ({ answerCallback }: Props) => {
       </div>
     </form>
   );
-}
+};
+
 export default AnswerForm;

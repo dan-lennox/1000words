@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "yarn run lint -- --fix"
   },
   "dependencies": {
     "@material/react-button": "^0.15.0",

@@ -3,14 +3,13 @@
  */
 
 import { Word as WordType } from './Word.type';
+import { ReactElement } from 'react';
 
 type Props = {
-  word: WordType
-}
+  word: WordType;
+};
 
-const Word = ({ word }: Props) => {
-  return (
-    <h3>{word.croatian}</h3>
-  );
-}
+const Word = ({ word }: Props): ReactElement => {
+  return <h3>{word.croatian}</h3>;
+};
 export default Word;
