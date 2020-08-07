@@ -9,6 +9,7 @@ import Word from './Word';
 import AnswerForm from './AnswerForm';
 import Progress from './Progress';
 import Result from './Result';
+import Button from '@material/react-button';
 
 // const GameState = createContext({
 //   //words: []
@@ -69,7 +70,7 @@ const Game = () => {
       { gameStatus === NONE &&
         <Fragment>
           <WordCountSlider wordCount={defaultWordCount} update={setWordsList} />
-          <button id="start-game" className="btn" onClick={startGame}>Start Game</button>
+          <Button id="start-game" unelevated={true} onClick={startGame}>Start Game</Button>
         </Fragment>
       }
 
@@ -85,8 +86,11 @@ const Game = () => {
           </div>
 
           <div className="row">
-            <div className="col s12 center">
-              <button id="skip" className="btn red" onClick={nextWord}>Skip</button>
+            <div className="col push-s2 s4">
+              { currentWordIndex > 0 && <Button onClick={resetGame}>Restart</Button> }
+            </div>
+            <div className="col push-s2 s4">
+              <Button id="skip" unelevated={true} className="mdc-theme--secondary" onClick={nextWord}>Skip</Button>
             </div>
           </div>
         </Fragment>
@@ -95,7 +99,7 @@ const Game = () => {
       { gameStatus === FINISHED &&
         <Fragment>
           <Result />
-          <button id="play-again" className="btn" onClick={resetGame}>Play Again</button>
+          <Button id="play-again" unelevated={true} onClick={resetGame}>Play Again</Button>
         </Fragment>
       }
     </div>
