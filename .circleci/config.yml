@@ -11,7 +11,7 @@ jobs:
           steps:
             - run: yarn install
             - run: yarn eslint "./**/*.js"
-            - run: next build
+            - run: yarn build
 workflows:
     build-and-test:
       jobs:
