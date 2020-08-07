@@ -1,18 +1,22 @@
 /**
  * AnswerForm Component.
  */
-import { useState } from 'react';
+import { SyntheticEvent, useState, ChangeEvent } from 'react';
 
-const AnswerForm = ({ answerCallback }) => {
+type Props = {
+  answerCallback: (answer: string) => void
+}
+
+const AnswerForm = ({ answerCallback }: Props) => {
 
   const [answer, setAnswer] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: SyntheticEvent) => {
     answerCallback(answer);
     event.preventDefault();
   }
 
-  const handleChange = ({ target: { value }}) => {
+  const handleChange = ({ target: { value }}: ChangeEvent<HTMLInputElement>) => {
     setAnswer(value);
   }
 

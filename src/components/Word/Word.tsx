@@ -2,10 +2,7 @@
  * AnswerForm Component.
  */
 
-export type WordType = {
-  english: string,
-  croatian: string
-}
+import { Word as WordType } from './Word.type';
 
 type Props = {
   word: WordType

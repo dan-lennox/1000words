@@ -2,7 +2,12 @@
  * WordCountSlider Component.
  */
 
-const WordCountSlider = ({ wordCount, update }) => {
+type Props = {
+  wordCount: number,
+  update: (count: number) => void
+}
+
+const WordCountSlider = ({ wordCount, update }: Props) => {
   return (
     <form action="#">
       <p className="range-field">
@@ -13,7 +18,7 @@ const WordCountSlider = ({ wordCount, update }) => {
           max="1000"
           step="50"
           defaultValue={wordCount}
-          onChange={e => update(e.target.value)}
+          onChange={e => update(parseInt(e.target.value))}
         />
       </p>
     </form>

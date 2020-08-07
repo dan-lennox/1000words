@@ -5,7 +5,8 @@ import React, { useState, useEffect, createContext, Fragment } from 'react';
 import { shuffleArray } from '../lib/helpers';
 import croatian from '../../data/wordSets/croatian.json';
 import WordCountSlider from './WordCountSlider';
-import Word from './Word';
+import { Word as WordType } from './Word/Word.type';
+import Word from './Word/Word';
 import AnswerForm from './AnswerForm';
 import Progress from './Progress';
 import Result from './Result';
@@ -21,7 +22,7 @@ const Game = () => {
   const FINISHED = 2;
   const defaultWordCount = 100;
 
-  const [words, setWords] = useState<Array<string>>([]);
+  const [words, setWords] = useState<Array<WordType>>([]);
   const [gameStatus, setGameStatus] = useState<number>(NONE);
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
 
@@ -90,7 +91,14 @@ const Game = () => {
               { currentWordIndex > 0 && <Button onClick={resetGame}>Restart</Button> }
             </div>
             <div className="col push-s2 s4">
-              <Button id="skip" unelevated={true} className="mdc-theme--secondary" onClick={nextWord}>Skip</Button>
+              <Button
+                id="skip"
+                unelevated={true}
+                className="mdc-theme--secondary"
+                onClick={nextWord}
+              >
+                Skip
+              </Button>
             </div>
           </div>
         </Fragment>
@@ -98,7 +106,7 @@ const Game = () => {
 
       { gameStatus === FINISHED &&
         <Fragment>
-          <Result />
+               <Result />
           <Button id="play-again" unelevated={true} onClick={resetGame}>Play Again</Button>
         </Fragment>
       }
