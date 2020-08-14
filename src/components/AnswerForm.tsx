@@ -3,7 +3,6 @@
  */
 import React, { SyntheticEvent, useState, ChangeEvent, ReactElement, createRef, useEffect } from 'react';
 import { Button } from '@material/react-button';
-import MaterialIcon from '@material/react-material-icon';
 
 type Props = {
   answerCallback: (answer: string) => void;

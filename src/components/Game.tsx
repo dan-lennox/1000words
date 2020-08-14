@@ -61,7 +61,7 @@ const Game = (): ReactElement => {
     }
   };
 
-  const processAnswer = (answer: string = '') => {
+  const processAnswer = (answer: string) => {
     const result: Answer = {
       word: words[currentWordIndex],
       response: answer,
@@ -95,12 +95,12 @@ const Game = (): ReactElement => {
 
           <div className="row">
             <div className="col s6 offset-s3">
-              <AnswerForm answerCallback={processAnswer} resetGameCallback={resetGame} />
+              <AnswerForm answerCallback={processAnswer} />
 
               <Button onClick={() => resetGame()} trailingIcon={<MaterialIcon icon="refresh" />}>
                 Restart
               </Button>
-              <Button id="skip" unelevated={true} className="mdc-theme--secondary" onClick={nextWord}>
+              <Button id="skip" unelevated={true} className="mdc-theme--secondary" onClick={() => processAnswer('')}>
                 Skip
               </Button>
             </div>
