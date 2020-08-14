@@ -2,7 +2,7 @@
  * AnswerForm Component.
  */
 
-import { Word as WordType } from './Word.type';
+import { Word as WordType } from '../types/Word.type';
 import { ReactElement } from 'react';
 
 type Props = {

@@ -15,9 +15,9 @@ const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
         <input
           type="range"
           className="word-count-range"
-          min="50"
+          min="20"
           max="1000"
-          step="50"
+          step="20"
           defaultValue={wordCount}
           onChange={(e) => update(parseInt(e.target.value))}
         />
