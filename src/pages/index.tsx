@@ -6,7 +6,7 @@ const Home = (): ReactElement => {
   return (
     <div className="container">
       <Head>
-        <title>1000 Words</title>
+        <title>1000 Most Common Croatian Words</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"

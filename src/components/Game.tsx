@@ -78,7 +78,7 @@ const Game = (): ReactElement => {
 
   return (
     <div id="game" className="center">
-      <h1>{numberOfWords()} words</h1>
+      <h1>{numberOfWords()} most common Croatian words</h1>
 
       {gameStatus === NONE && (
         <Fragment>
