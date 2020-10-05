@@ -2,6 +2,7 @@
  * Game Component.
  */
 import React, { useState, useEffect, createContext, Fragment, ReactElement } from 'react';
+// @todo: let's replace with the webcomponent version. The react library is now unsuported.
 import Button from '@material/react-button';
 import MaterialIcon from '@material/react-material-icon';
 import croatian from '../../data/wordSets/croatian.json';
