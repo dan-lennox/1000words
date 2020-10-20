@@ -17,6 +17,7 @@
 
 # misc
 .DS_Store
+.node-version
 
 # debug
 npm-debug.log*

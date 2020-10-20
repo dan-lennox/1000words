@@ -1,0 +1,15 @@
+// @todo: https://material.io/develop/web/docs/getting-started
+// @todo: Also need autoprefixer.
+// Sass integration
+// Maybe not css modules then?
+// Balance with what works for next.js
+
+@use "@material/icon-button";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/slider";
+
+@include slider.core-styles;
+@include icon-button.core-styles;
+
+@import 'reset';
+@import 'layout';

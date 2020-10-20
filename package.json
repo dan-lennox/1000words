@@ -12,13 +12,17 @@
   "dependencies": {
     "@hapi/iron": "^6.0.0",
     "@magic-sdk/admin": "^1.2.2",
+    "@material/icon-button": "^7.0.0",
     "@material/react-button": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
+    "@material/slider": "^7.0.0",
+    "@material/top-app-bar": "^7.0.0",
     "cookie": "^0.4.1",
     "magic-sdk": "^2.7.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "sass": "^1.27.0",
     "swr": "^0.3.5"
   },
   "devDependencies": {
