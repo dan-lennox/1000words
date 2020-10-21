@@ -10,10 +10,10 @@ type Props = {
 };
 
 const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
-  const sliderRef: RefObject<Element> = createRef<Element>();
+  const sliderRef: RefObject<HTMLDivElement> = createRef<HTMLDivElement>();
 
   useEffect(() => {
-    const slider = new MDCSlider(sliderRef.current as Element);
+    const slider = new MDCSlider(sliderRef.current as HTMLDivElement);
     slider.listen('MDCSlider:change', () => update(slider.value));
   });
 
@@ -21,11 +21,11 @@ const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
     <div
       ref={sliderRef}
       className="mdc-slider mdc-slider--discrete"
-      tabIndex="0"
+      tabIndex={0}
       role="slider"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={0}
       aria-label="Select Value"
     >
       <div className="mdc-slider__track-container">

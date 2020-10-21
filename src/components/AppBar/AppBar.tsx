@@ -5,19 +5,19 @@
 
 // @todo: Move working example of css modules somewhere else.
 
-import { ReactElement, useEffect, useRef } from 'react';
+import { createRef, ReactElement, RefObject, useEffect, useRef } from 'react';
 import { MDCTopAppBar } from '@material/top-app-bar';
 import styles from './appBar.module.scss';
 
 const AppBar = (): ReactElement => {
-  const appBar = useRef(null);
+  const appBarRef: RefObject<HTMLElement> = createRef<HTMLElement>();
 
   useEffect(() => {
-    const topAppBar = new MDCTopAppBar(appBar.current);
+    new MDCTopAppBar(appBarRef.current as HTMLElement);
   });
 
   return (
-    <header ref={appBar} className={`mdc-top-app-bar ${styles.appBar}`}>
+    <header ref={appBarRef} className={`mdc-top-app-bar ${styles.appBar}`}>
       <div className="mdc-top-app-bar__row">
         <section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <button
