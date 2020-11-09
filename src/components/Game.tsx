@@ -10,11 +10,13 @@ import type { Word as WordType } from '../types/Word.type';
 import type { Answer } from '../types/Answer.type';
 import { shuffleArray } from '../lib/helpers';
 import WordCountSlider from './WordCountSlider';
-import Word from './Word';
+import Word from './Word/Word';
 import AnswerForm from './AnswerForm';
-import Progress from './Progress';
+import Progress from './Progress/Progress';
 import Result from './Result';
 import FinalResult from './FinalResult';
+
+// @todo: Move game controls into component?
 
 // @todo: Using global state is not very FP, avoid where possible.
 // const GameState = createContext({
@@ -81,9 +83,11 @@ const Game = (): ReactElement => {
       {gameStatus === NONE && (
         <Fragment>
           <WordCountSlider wordCount={wordCount} update={setWordsList} />
-          <Button id="start-game" unelevated={true} onClick={startGame} className="green">
-            Start Game
-          </Button>
+          <div id="game-controls">
+            <Button id="start-game" unelevated={true} onClick={startGame} className="green">
+              Start Game
+            </Button>
+          </div>
         </Fragment>
       )}
 
@@ -92,17 +96,15 @@ const Game = (): ReactElement => {
           <Progress current={currentWordIndex} total={words.length} />
           <Word word={words[currentWordIndex]} />
 
-          <div className="row">
-            <div className="col s6 offset-s3">
-              <AnswerForm answerCallback={processAnswer} />
+          <AnswerForm answerCallback={processAnswer} />
 
-              <Button onClick={() => resetGame()} trailingIcon={<MaterialIcon icon="refresh" />}>
-                Restart
-              </Button>
-              <Button id="skip" unelevated={true} className="mdc-theme--secondary" onClick={() => processAnswer('')}>
-                Skip
-              </Button>
-            </div>
+          <div id="game-controls">
+            <Button onClick={() => resetGame()} trailingIcon={<MaterialIcon icon="refresh" />}>
+              Restart
+            </Button>
+            <Button id="skip" unelevated={true} className="mdc-theme--secondary" onClick={() => processAnswer('')}>
+              Skip
+            </Button>
           </div>
         </Fragment>
       )}
@@ -112,9 +114,11 @@ const Game = (): ReactElement => {
       {gameStatus === FINISHED && (
         <Fragment>
           <FinalResult results={results} />
-          <Button id="play-again" unelevated={true} onClick={resetGame}>
-            Play Again
-          </Button>
+          <div id="game-controls">
+            <Button id="play-again" unelevated={true} onClick={resetGame}>
+              Play Again
+            </Button>
+          </div>
         </Fragment>
       )}
     </div>
