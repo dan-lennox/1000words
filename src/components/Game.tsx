@@ -72,17 +72,15 @@ const Game = (): ReactElement => {
     setGameStatus(SHOW_RESULT);
   };
 
-  const numberOfWords = () => {
-    return words.length > 0 ? words.length : defaultWordCount;
-  };
+  const wordCount = words.length > 0 ? words.length : defaultWordCount;
 
   return (
     <div id="game" className="center">
-      <h1>{numberOfWords()} most common Croatian words</h1>
+      <h1>{wordCount} most common Croatian words</h1>
 
       {gameStatus === NONE && (
         <Fragment>
-          <WordCountSlider wordCount={numberOfWords()} update={setWordsList} />
+          <WordCountSlider wordCount={wordCount} update={setWordsList} />
           <Button id="start-game" unelevated={true} onClick={startGame} className="green">
             Start Game
           </Button>
