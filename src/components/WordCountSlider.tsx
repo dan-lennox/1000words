@@ -14,7 +14,8 @@ const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
   const [slider, setSlider] = useState<any>(undefined);
 
   useEffect(() => {
-    if (!slider) {
+    if (!slider && sliderElementRef.current !== null) {
+      console.log(sliderElementRef.current);
       let mdcSlider = new MDCSlider(sliderElementRef.current as HTMLDivElement);
 
       mdcSlider.listen(
@@ -55,6 +56,33 @@ const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
         <div className="mdc-slider__focus-ring" />
       </div>
     </div>
+
+    // <div ref={sliderElementRef} className="mdc-slider mdc-slider--discrete" data-step="20">
+    //   <div className="mdc-slider__track">
+    //     <div className="mdc-slider__track--inactive" />
+    //     <div className="mdc-slider__track--active">
+    //       <div className="mdc-slider__track--active_fill" />
+    //     </div>
+    //   </div>
+    //   <div
+    //     className="mdc-slider__thumb"
+    //     role="slider"
+    //     tabIndex={0}
+    //     aria-label="Discrete slider demo"
+    //     aria-valuemin={20}
+    //     aria-valuemax={1000}
+    //     aria-valuenow={wordCount}
+    //   >
+    //     <div className="mdc-slider__value-indicator-container">
+    //       <div className="mdc-slider__value-indicator">
+    //         <span ref={sliderElementRef} className="mdc-slider__value-indicator-text">
+    //           {wordCount}
+    //         </span>
+    //       </div>
+    //     </div>
+    //     <div className="mdc-slider__thumb-knob" />
+    //   </div>
+    // </div>
   );
 };
 export default WordCountSlider;
