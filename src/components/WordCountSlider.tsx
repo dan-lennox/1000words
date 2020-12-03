@@ -14,19 +14,14 @@ const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
   const [slider, setSlider] = useState<any>(undefined);
 
   useEffect(() => {
-    if (!slider && sliderElementRef.current !== null) {
-      console.log(sliderElementRef.current);
+    if (!slider) {
       let mdcSlider = new MDCSlider(sliderElementRef.current as HTMLDivElement);
 
-      mdcSlider.listen(
-        'MDCSlider:change',
-        (event: CustomEvent) => {
-          if (event.detail.value !== wordCount) {
-            update(event.detail.value);
-          }
-        },
-        slider
-      );
+      mdcSlider.listen('MDCSlider:change', (event: CustomEvent) => {
+        if (event.detail.value !== wordCount) {
+          update(event.detail.value);
+        }
+      });
 
       setSlider(mdcSlider);
     }
