@@ -1,8 +1,9 @@
 /**
  * AnswerForm Component.
  */
-import React, { SyntheticEvent, useState, ChangeEvent, ReactElement, createRef, useEffect } from 'react';
+import React, { SyntheticEvent, useState, ChangeEvent, ReactElement, useRef, useEffect, RefObject } from 'react';
 import { Button } from '@material/react-button';
+import { MDCTextField } from '@material/textfield';
 
 type Props = {
   answerCallback: (answer: string) => void;
@@ -10,11 +11,12 @@ type Props = {
 
 const AnswerForm = ({ answerCallback }: Props): ReactElement => {
   const [answer, setAnswer] = useState('');
-  const answerInput = createRef<HTMLInputElement>();
+  const answerInput: React.MutableRefObject<HTMLInputElement | undefined> = useRef<HTMLInputElement>();
 
   useEffect(() => {
     // When the answer form is made visible, the answer input field should be in focus for quick answers.
     answerInput?.current?.focus();
+    new MDCTextField(answerInput.current as HTMLInputElement);
   });
 
   const handleSubmit = (event: SyntheticEvent): void => {
@@ -26,19 +28,31 @@ const AnswerForm = ({ answerCallback }: Props): ReactElement => {
     setAnswer(value);
   };
 
+  // @todo: Using MDC text field here directly as this is so far the only text field in the application.
+  // Move to an Input component once a second input is required.
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
       <div className="input-field">
-        <input
-          ref={answerInput}
-          type="text"
-          name="answer"
-          id="answer"
-          className="center"
-          aria-label="Answer"
-          value={answer}
-          onChange={handleChange}
-        />
+        <label className="mdc-text-field mdc-text-field--outlined" ref={answerInput}>
+          <span className="mdc-notched-outline">
+            <span className="mdc-notched-outline__leading" />
+            <span className="mdc-notched-outline__notch">
+              <span className="mdc-floating-label" id="label">
+                Answer
+              </span>
+            </span>
+            <span className="mdc-notched-outline__trailing" />
+          </span>
+          <input
+            type="text"
+            name="answer"
+            id="answer"
+            className="mdc-text-field__input"
+            aria-labelledby="label"
+            value={answer}
+            onChange={handleChange}
+          />
+        </label>
       </div>
       <div className="buttons">
         <Button type="submit" unelevated={true} className="green">

@@ -16,6 +16,7 @@
     "@material/react-button": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
     "@material/slider": "^7.0.0",
+    "@material/textfield": "^8.0.0",
     "@material/top-app-bar": "^7.0.0",
     "cookie": "^0.4.1",
     "magic-sdk": "^2.7.0",

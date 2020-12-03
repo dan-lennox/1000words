@@ -7,9 +7,14 @@
 @use "@material/icon-button";
 @use "@material/top-app-bar/mdc-top-app-bar";
 @use "@material/slider";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
 
 @include slider.core-styles;
 @include icon-button.core-styles;
+@include textfield.core-styles;
 
 @import 'reset';
 @import 'layout';
