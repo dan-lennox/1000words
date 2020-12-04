@@ -1,7 +1,7 @@
 /**
  * Game Component.
  */
-import React, { useState, useEffect, createContext, Fragment, ReactElement } from 'react';
+import React, { useState, useEffect, Fragment, ReactElement } from 'react';
 // @todo: let's replace with the webcomponent version. The react library is now unsuported.
 import Button from '@material/react-button';
 import MaterialIcon from '@material/react-material-icon';
@@ -23,6 +23,8 @@ import FinalResult from './FinalResult';
 // https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid
 
 // @todo: Using global state is not very FP, avoid where possible.
+// But use instead of redux if possible when/if the time arises.
+// import { createContext } from 'react';
 // const GameState = createContext({
 //   //words: []
 // });

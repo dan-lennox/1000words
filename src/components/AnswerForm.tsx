@@ -1,7 +1,7 @@
 /**
  * AnswerForm Component.
  */
-import React, { SyntheticEvent, useState, ChangeEvent, ReactElement, useRef, useEffect, RefObject } from 'react';
+import React, { SyntheticEvent, useState, ChangeEvent, ReactElement, useRef, useEffect } from 'react';
 import { Button } from '@material/react-button';
 import { MDCTextField } from '@material/textfield';
 

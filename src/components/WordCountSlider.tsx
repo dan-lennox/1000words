@@ -15,7 +15,7 @@ const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
 
   useEffect(() => {
     if (!slider) {
-      let mdcSlider = new MDCSlider(sliderElementRef.current as HTMLDivElement);
+      const mdcSlider = new MDCSlider(sliderElementRef.current as HTMLDivElement);
 
       mdcSlider.listen('MDCSlider:change', (event: CustomEvent) => {
         if (event.detail.value !== wordCount) {
