@@ -5,12 +5,13 @@
 
 // @todo: Move working example of css modules somewhere else.
 
-import { createRef, ReactElement, RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import type { ReactElement, MutableRefObject } from 'react';
 import { MDCTopAppBar } from '@material/top-app-bar';
 import styles from './appBar.module.scss';
 
 const AppBar = (): ReactElement => {
-  const appBarRef: RefObject<HTMLElement> = createRef<HTMLElement>();
+  const appBarRef: MutableRefObject<HTMLElement | null> = useRef<HTMLElement>(null);
 
   useEffect(() => {
     new MDCTopAppBar(appBarRef.current as HTMLElement);

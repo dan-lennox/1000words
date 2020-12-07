@@ -16,13 +16,22 @@ import Progress from './Progress/Progress';
 import Result from './Result';
 import FinalResult from './FinalResult';
 
+// @todo: Get discrete slider working.
+
+// @todo: Time to ponder this article... - https://medium.com/javascript-scene/tdd-changed-my-life-5af0ce099f80
+// Lets write a NEW component with TDD. Then retroactively add the others if I'm digging it.
+
+// @todo: Lets set up a simple e2e test with Cypress and then see if we can get this to run
+// on Cicle CI with less fuss than phantomjs...
+// https://docs.cypress.io/guides/guides/continuous-integration.html#Setting-up-CI
+
 // @todo: Material UI theme.
 // A proper material ui theme - e.g, https://material.io/design/material-studies/rally.html
 
 // @todo: Implement grid!
 // https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid
 
-// @todo: Using global state is not very FP, avoid where possible.
+// Using global state is not very FP, avoid where possible.
 // But use instead of redux if possible when/if the time arises.
 // import { createContext } from 'react';
 // const GameState = createContext({

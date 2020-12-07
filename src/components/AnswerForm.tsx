@@ -1,7 +1,8 @@
 /**
  * AnswerForm Component.
  */
-import React, { SyntheticEvent, useState, ChangeEvent, ReactElement, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import type { MutableRefObject, SyntheticEvent, ChangeEvent, ReactElement } from 'react';
 import { Button } from '@material/react-button';
 import { MDCTextField } from '@material/textfield';
 
@@ -11,12 +12,12 @@ type Props = {
 
 const AnswerForm = ({ answerCallback }: Props): ReactElement => {
   const [answer, setAnswer] = useState('');
-  const answerInput: React.MutableRefObject<HTMLInputElement | undefined> = useRef<HTMLInputElement>();
+  const answerInput: MutableRefObject<HTMLLabelElement | null> = useRef<HTMLLabelElement>(null);
 
   useEffect(() => {
     // When the answer form is made visible, the answer input field should be in focus for quick answers.
     answerInput?.current?.focus();
-    new MDCTextField(answerInput.current as HTMLInputElement);
+    new MDCTextField(answerInput.current as HTMLLabelElement);
   });
 
   const handleSubmit = (event: SyntheticEvent): void => {

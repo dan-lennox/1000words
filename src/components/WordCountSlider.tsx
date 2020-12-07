@@ -1,7 +1,8 @@
 /**
  * WordCountSlider Component.
  */
-import { createRef, ReactElement, useEffect, useRef, RefObject, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { ReactElement, MutableRefObject } from 'react';
 import { MDCSlider } from '@material/slider';
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 };
 
 const WordCountSlider = ({ wordCount, update }: Props): ReactElement => {
-  const sliderElementRef: RefObject<HTMLDivElement> = createRef<HTMLDivElement>();
+  const sliderElementRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const [slider, setSlider] = useState<any>(undefined);
 
   useEffect(() => {
